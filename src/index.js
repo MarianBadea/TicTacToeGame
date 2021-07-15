@@ -78,15 +78,9 @@ class Game extends React.Component {
       xIsNext: (step % 2) === 0,
     });
   }
-  
 
-  render() {
-    const history = this.state.history;
-    const current = history[this.state.stepNumber];
-    const winner = calculateWinner(current.squares);
-
-    const moves = history.map((step, move) => {
-      const desc = move ?
+  renderMoves(step, move) {
+    const desc = move ?
       'Go to move #' + move :
       'Go to game start';
       return (
@@ -96,6 +90,15 @@ class Game extends React.Component {
           </button>
         </li>
       );
+  }  
+
+  render() {
+    const history = this.state.history;
+    const current = history[this.state.stepNumber];
+    const winner = calculateWinner(current.squares);
+
+    const moves = history.map((step, move) => {
+      
     });
 
     let status;
